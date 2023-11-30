@@ -1,32 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using Wema.BIT.IRepository;
 using Wema.BIT.Repository;
 using Wema.BIT.Models;
 
 namespace Wema.BIT.User
 {
-    public class User
-    {
-        public IUser _userRepository; // Change access modifier to public
-
-        public static int num = 0;
-
-        public User(IUser userRepository)
-        {
-            _userRepository = userRepository;
-            num = _userRepository.AddNumber(21, 55);
-        }
-    }
-
     public class Program
     {
         public static void Main(string[] args)
         {
-            UserRepository uu = new UserRepository();
-            Console.WriteLine(uu.AddNumber(21, 55));
-            Console.WriteLine(User.num); // Accessing static field num from User class
-
             IUser userRepository = new UserRepository();
+
+            // UserList object instantiation is corrected here
+            UserList user = new UserList(); // Assuming you might want to perform operations on a single user
+
             List<UserList> users = new List<UserList>();
 
             Console.WriteLine("Enter User Details or 'exit' to stop:");
@@ -55,14 +43,79 @@ namespace Wema.BIT.User
                 users.Add(newUser);
             }
 
-            foreach (var user in users)
+            foreach (var userItem in users)
             {
-                string result = userRepository.AddUser(user);
+                string result = userRepository.AddUser(userItem);
                 Console.WriteLine(result);
+            }
+
+            while (true)
+            {
+                Console.WriteLine("Options:");
+                Console.WriteLine("Enter 1 to view user by ID");
+                Console.WriteLine("Enter 2 to delete user by ID");
+                Console.WriteLine("Enter 3 to edit user by ID");
+                Console.WriteLine("Enter 'exit' to exit");
+
+                Console.Write("Enter your choice: ");
+                string userInput = Console.ReadLine();
+
+                if (userInput.ToLower() == "exit")
+                {
+                    Console.WriteLine("Exiting...");
+                    break; // Exit the loop when 'exit' is entered
+                }
+
+                switch (userInput)
+                {
+                    case "1":
+                        Console.Write("Enter User ID to view: ");
+                        if (int.TryParse(Console.ReadLine(), out int idToView))
+                        {
+                            userRepository.ViewUser(idToView);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid User ID.");
+                        }
+                        break;
+
+                    case "2":
+                        Console.Write("Enter User ID to delete: ");
+                        if (int.TryParse(Console.ReadLine(), out int idToDelete))
+                        {
+                            userRepository.DeleteUser(idToDelete);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid User ID.");
+                        }
+                        break;
+
+                    case "3":
+                        Console.Write("Enter User ID to edit: ");
+                        if (int.TryParse(Console.ReadLine(), out int idToEdit))
+                        {
+                            userRepository.EditUser(idToEdit);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid User ID.");
+                        }
+                        break;
+
+
+                    default:
+                        Console.WriteLine("Invalid input. Please enter a valid option or 'exit'.");
+                        break;
+                }
             }
         }
     }
 }
+
+
+
 
 
 

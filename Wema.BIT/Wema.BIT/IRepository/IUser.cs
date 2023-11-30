@@ -5,12 +5,11 @@ namespace Wema.BIT.IRepository
 {
     public interface IUser
     {
-        string AddUser(UserList userList);   
+        string AddUser(UserList userList);
         List<UserList> GetAllUser();
-        void EditUser();
-        void DeleteUser();
-        void ViewUser();
+        void EditUser(int userId);
+        void DeleteUser(int userId);
+        void ViewUser(int userId);
         int AddNumber(int a, int b);
     }
-
 }

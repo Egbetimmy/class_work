@@ -30,7 +30,7 @@ public class Program
             // Create a new string from the reversed char array
             string reversedWord = new string(charArray);
 
-            // Check if the reversed word is the same as the original word
+            // Check if the reversed word is the same as the original word  
             bool isPalindrome = string.Equals(word, reversedWord, StringComparison.OrdinalIgnoreCase);
 
             if (isPalindrome)
