@@ -14,7 +14,7 @@ namespace Wema.BIT.Repository
             users = new List<UserList>();
         }
 
-        public string AddUser(UserList userList)
+        public string AddUser(UserList userList)  
         {
             users.Add(userList);
             return "User added successfully";
