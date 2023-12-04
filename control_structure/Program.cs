@@ -37,11 +37,6 @@ class ControlStructures
                 break;
         }
 
-        // For loop
-        for (int i = 1; i <= 5; i++)
-        {
-            Console.WriteLine("For loop iteration: " + i);
-        }
 
         // While loop
         int count = 0;
