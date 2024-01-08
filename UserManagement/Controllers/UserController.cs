@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using System.Text.RegularExpressions;
 using UserManagement.Data;
+using UserManagement.Helper;
+using UserManagement.Helpers;
 using UserManagement.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -53,6 +55,11 @@ namespace UserManagement.Controllers
         [Route("post")]
         public async Task<IActionResult> Create([FromBody] User model)
         {
+            if (!PhoneNumberValidator.IsValidPhoneNumber(model.PhoneNumber))
+            {
+                return BadRequest("Invalid phone number format");
+            }
+
             if (!PasswordValidator.IsStrongPassword(model.Password))
             {
                 return BadRequest("Password does not meet the requirements");
