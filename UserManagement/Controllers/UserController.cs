@@ -21,6 +21,7 @@ namespace UserManagement.Controllers
         {
             _dataContext = dataContext;
         }
+
         // GET: api/<UserController>
         [HttpGet]
         [Route("get")]
