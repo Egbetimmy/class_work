@@ -6,7 +6,7 @@ class Program
     static void Main()
     {
         // Replace "your_jwt_here" with your actual JWT
-        string jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImZhaXNhbG96aWdpc0BnbWFpbC5jb20iLCJuYW1laWQiOiIzNiIsIk9UUCI6IjMyNDQ1NCIsIm5iZiI6MTcwNTMwNjkyNywiZXhwIjoxNzA1MzEwNTI3LCJpYXQiOjE3MDUzMDY5Mjd9.f3YQ1zgaq6o0lgzZbG8V04djzi0fgh4iKCZa4hbAir0";
+        string jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImVzdGFnYmFkMTFAeWFob28uY29tIiwibmFtZWlkIjoiMCIsIk9UUCI6IjkyNjM4MCIsIlBhc3N3b3JkIjoiRXN0aGVyIiwiRmlyc3ROYW1lIjoiZ2JhZGFtb3NpIiwiTGFzdE5hbWUiOiIkMmEkMTAkbGNGdEZWMDJhZnpqa3FnUTAuSUszdWR1YWhwd01jOWZXZzQvTmFUMHFnLkxUUUFNTjQuVmkiLCJuYmYiOjE3MDU1Nzg2OTUsImV4cCI6MTcwNTU4MjI5NSwiaWF0IjoxNzA1NTc4Njk1fQ.DTw8DLXlubgdb-bLXz8tO_6pgfRtNW0Vd7bD8Vly2SM";
 
         try
         {
