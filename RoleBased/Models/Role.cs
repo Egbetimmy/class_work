@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<User> Users { get; set; } // Navigation property for users
+        public List<User> Users { get; set; }
     }
 
     public class RoleDTO
