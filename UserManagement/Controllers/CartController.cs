@@ -8,7 +8,7 @@ namespace UserManagement.Controllers
     [ApiController]
     public class CartController : ControllerBase
     {
-        private readonly ApiCart api;
+        private readonly ApiCart api; 
         public CartController(ApiCart api)
         {
 
@@ -19,7 +19,7 @@ namespace UserManagement.Controllers
         public async Task<IActionResult> getcart(int id)
         {
             return Ok(await api.CartAsync(id));
-        }
+        } 
 
         [HttpGet("all-carts")]
         public async Task<IActionResult> getAllcart()
