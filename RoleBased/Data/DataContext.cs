@@ -11,7 +11,9 @@ public class DataContext : DbContext
 
     public DbSet<User> Users { get; set; }
     public DbSet<Role> Roles { get; set; }
+    public DbSet<OTPDTO> OTPDTOs { get; set; }
 
+    /*
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // Configure your entity relationships, keys, etc. here if needed
@@ -21,4 +23,5 @@ public class DataContext : DbContext
             .WithMany(r => r.Users)
             .UsingEntity(j => j.ToTable("UserRoles"));
     }
+    */
 }
