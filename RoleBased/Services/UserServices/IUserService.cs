@@ -4,21 +4,21 @@ namespace RoleBased.Services.UserServices
 {
     public interface IUserService
     {
-        ICollection<User> GetAdmins();
-        User GetUser(int id);
-        User GetUserByEmail(string email);
-        User CreateAdmin(User adminDto);
-        bool UserExists(int adminid);
-        bool DeleteAdmin(User AdminModel);
-        bool IsEmailExists(string email);
-        bool UpdateAdmin(User admin);
-        bool AuthenticateAdmin(UserLoginDTO loginAdminDto);
-        bool ValidateOTP(OTPDTO validateOTPDto);
-        bool Save();
+        Task<ICollection<User>> GetUsers();
+        Task<User> GetUser(int id);
+        Task<User> GetUserByEmail(string email);
+        Task<User> CreateUser(User adminDto);
+        Task<bool> UserExists(int adminid);
+        Task<bool> DeleteUser(User AdminModel);
+        Task<bool> IsEmailExists(string email);
+        Task<bool> UpdateUser(User admin);
+        Task<bool> AuthenticateUser(UserLoginDTO loginAdminDto);
+        Task<bool> ValidateOTP(OTPDTO validateOTPDto);
+        Task<bool> Save();
 
         // Additional methods for password reset
-        void SaveResetToken(int adminId, string resetToken, DateTime expirationTime);
-        bool ValidateResetToken(int adminId, string resetToken);
-        void UpdatePassword(int adminId, string newPassword);
+        Task SaveResetToken(int adminId, string resetToken, DateTime expirationTime);
+        Task<bool> ValidateResetToken(int adminId, string resetToken);
+        Task UpdatePassword(int adminId, string newPassword);
     }
 }
