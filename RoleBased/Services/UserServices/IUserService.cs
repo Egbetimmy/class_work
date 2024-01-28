@@ -1,4 +1,5 @@
 ﻿using RoleBased.Models;
+using static RoleBased.Services.UserServices.UserService;
 
 namespace RoleBased.Services.UserServices
 {
@@ -7,18 +8,18 @@ namespace RoleBased.Services.UserServices
         Task<ICollection<User>> GetUsers();
         Task<User> GetUser(int id);
         Task<User> GetUserByEmail(string email);
-        Task<User> CreateUser(User adminDto);
-        Task<bool> UserExists(int adminid);
-        Task<bool> DeleteUser(User AdminModel);
+        Task<Response<User>> CreateUser(User userDto);
+        Task<bool> UserExists(int userId);
+        Task<Response<bool>> DeleteUser(User modelUser);
         Task<bool> IsEmailExists(string email);
-        Task<bool> UpdateUser(User admin);
-        Task<bool> AuthenticateUser(UserLoginDTO loginAdminDto);
+        Task<bool> UpdateUser(User user);
+        Task<Response<bool>> AuthenticateUser(UserLoginDTO loginDto);
         Task<bool> ValidateOTP(OTPDTO validateOTPDto);
         Task<bool> Save();
 
         // Additional methods for password reset
-        Task SaveResetToken(int adminId, string resetToken, DateTime expirationTime);
-        Task<bool> ValidateResetToken(int adminId, string resetToken);
+        Task SaveResetToken(int userId, string resetToken, DateTime expirationTime);
+        Task<bool> ValidateResetToken(int userId, string resetToken);
         Task UpdatePassword(int adminId, string newPassword);
     }
 }
