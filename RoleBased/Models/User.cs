@@ -11,6 +11,8 @@ namespace RoleBased.Models
         public string Password { get; set; }
         public string Email { get; set; }
         public List<Role> Roles { get; set; } // Navigation property for roles
+        public string ResetToken { get; internal set; }
+        public string OTP { get; internal set; }
     }
 
     public class UserLoginDTO
