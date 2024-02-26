@@ -11,17 +11,17 @@ namespace Web1.Controllers
         public UsersController() 
         {
         }
-        [HttpPost("create")]
-        public IActionResult CreateUser([FromBody] userrequest model) 
-        { 
-            var user = new User 
-            { 
-                Email = model.Email,
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-            };
-            return Ok(model);
-        }
+        //[HttpPost("create")]
+        //public IActionResult CreateUser([FromBody] userrequest model) 
+        //{ 
+        //    var user = new User 
+        //    { 
+        //        Email = model.Email,
+        //        FirstName = model.FirstName,
+        //        LastName = model.LastName,
+        //    };
+        //    return Ok(model);
+        //}
 
         [HttpPost("create")]
         public IActionResult CreateProfile([FromBody] ProfileRequest model)
