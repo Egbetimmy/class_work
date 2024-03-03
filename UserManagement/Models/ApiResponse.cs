@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using UserManagement.Models;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace UserManagement
     {
@@ -10,7 +11,6 @@ namespace UserManagement
             public ApiResource()
             {
             }
-
 
             public async Task<Products> ProductAsync(int id)
             {
@@ -47,13 +47,27 @@ namespace UserManagement
                 //Console.WriteLine(response.Content);
             }
 
+        public async Task<HttpResponseMessage> PostProductAsync(Products product)
+        {
+            var client = new HttpClient();
 
-            public async Task<AllRoot> AllProductAsync()
+            // Assuming you have a dummy endpoint for posting products
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://dummyjson.com/products/add");
+
+            // Serialize the product object to JSON and set it as the request content
+            var jsonContent = JsonConvert.SerializeObject(product);
+            request.Content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+
+            return response;
+        }
+
+        public async Task<AllRoot> AllProductAsync()
             {
                 var client = new HttpClient();
                 var request = new HttpRequestMessage(HttpMethod.Get, "https://dummyjson.com/products");
-
-
 
                 var response = await client.SendAsync(request);
                 response.EnsureSuccessStatusCode();
@@ -84,7 +98,6 @@ namespace UserManagement
             }
 
         }
-
 
 
         // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);

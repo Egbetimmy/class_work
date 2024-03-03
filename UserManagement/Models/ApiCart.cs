@@ -41,7 +41,7 @@ namespace UserManagement.Models
             //Console.WriteLine(response.Content);
         }
 
-        public async Task<AllRoot> AllCartsAsync()
+        public async Task<Root> AllCartsAsync()
         {
             var client = new HttpClient();
             var request = new HttpRequestMessage(HttpMethod.Get, "https://dummyjson.com/carts");
@@ -55,7 +55,7 @@ namespace UserManagement.Models
                 var content = await response.Content.ReadAsStringAsync();
                 if (content != null)
                 {
-                    var myDeserializedClass = JsonConvert.DeserializeObject<AllRoot>(content);
+                    var myDeserializedClass = JsonConvert.DeserializeObject<Root>(content);
 
                     return myDeserializedClass;
                 }
